@@ -1,0 +1,43 @@
+{
+  "skill_name": "commit-message",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Generate a commit message for my staged changes.",
+      "expected_output": "A conventional commit message describing a bug fix, with type 'fix', no mention of tests or 'Generated with Claude Code'.",
+      "files": [],
+      "expectations": [
+        "Output starts with a conventional commit type (fix:, feat:, refactor:, etc.)",
+        "No mention of 'Generated with Claude Code' or 'Co-Authored-By'",
+        "No mention of test counts or test details",
+        "Output is only the commit message with no preamble or explanation",
+        "Summary line is under 72 characters"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What commit message should I use for my current changes? I added a new export button to the dashboard.",
+      "expected_output": "A conventional feat commit message that describes the new export button on the dashboard, possibly with UI before/after context.",
+      "files": [],
+      "expectations": [
+        "Output starts with 'feat' type",
+        "Mentions dashboard or export button",
+        "No mention of 'Generated with Claude Code' or 'Co-Authored-By'",
+        "Output is only the commit message with no preamble"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Prepare a commit message. Context: fixing the login redirect loop that happened when the token expired.",
+      "expected_output": "A fix commit message describing the login redirect loop bug fix, using the user context.",
+      "files": [],
+      "expectations": [
+        "Output starts with 'fix'",
+        "References login, redirect, or token expiry",
+        "No mention of 'Generated with Claude Code' or 'Co-Authored-By'",
+        "No test details mentioned",
+        "Output is only the commit message"
+      ]
+    }
+  ]
+}
