@@ -10,7 +10,7 @@ import urllib.error
 
 from utils import get_base_url, save_image
 
-MODEL = "gemini-2.0-flash-preview-image-generation"
+MODEL = "gemini-2.5-flash-image"
 
 MIME_TYPES = {
     ".jpg": "image/jpeg",

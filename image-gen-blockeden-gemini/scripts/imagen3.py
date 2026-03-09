@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Text-to-image generation using Imagen 3 via BlockEden Gemini proxy."""
+"""Text-to-image generation using Imagen 4 via BlockEden Gemini proxy."""
 
 import json
 import sys
@@ -8,7 +8,7 @@ import urllib.error
 
 from utils import get_base_url, save_image
 
-MODEL = "imagen-3.0-generate-002"
+MODEL = "imagen-4.0-generate-001"
 ASPECT_RATIOS = ["1:1", "16:9", "9:16", "4:3", "3:4"]
 
 
