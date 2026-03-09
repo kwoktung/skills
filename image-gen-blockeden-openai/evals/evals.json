@@ -1,0 +1,35 @@
+{
+  "skill_name": "image-gen-blockeden-openai",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Generate an image of a futuristic city at night with neon lights reflecting on wet streets",
+      "expected_output": "A PNG image file is created and the file path is reported to the user. The revised prompt (if any) is also shown.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Create a wide landscape painting of a peaceful Japanese garden in autumn with maple trees",
+      "expected_output": "A PNG image file in 1792x1024 landscape format is created. The skill detects 'wide landscape' and uses --size 1792x1024.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Make me a detailed HD portrait of an astronaut on Mars, photorealistic style",
+      "expected_output": "A PNG image in portrait format (1024x1792) with --quality hd and --style natural, since the user said 'photorealistic'.",
+      "files": []
+    }
+    {
+      "id": 4,
+      "prompt": "Generate a new image inspired by this photo but with a cyberpunk aesthetic: https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/240px-PNG_transparency_demonstration_1.png",
+      "expected_output": "A PNG image file is created using --reference-image with the provided URI. The script uses gpt-image-1 via /v1/responses. The file path is reported to the user.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Take this image https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/240px-PNG_transparency_demonstration_1.png and reimagine it as a watercolor painting",
+      "expected_output": "A PNG image file is created using --reference-image with the provided URI and a prompt describing the watercolor style transformation.",
+      "files": []
+    }
+  ]
+}
