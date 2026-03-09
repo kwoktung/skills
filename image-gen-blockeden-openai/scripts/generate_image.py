@@ -12,9 +12,9 @@ import time
 
 
 def generate_image(prompt, size="1024x1024", quality="standard", model="dall-e-3", style="vivid", output_dir="."):
-    api_key = os.environ.get("BLOCKEDEN_API_KEY")
+    api_key = os.environ.get("BLOCKEDEN_ACCESS_KEY")
     if not api_key:
-        print("Error: BLOCKEDEN_API_KEY environment variable is not set.", file=sys.stderr)
+        print("Error: BLOCKEDEN_ACCESS_KEY environment variable is not set.", file=sys.stderr)
         sys.exit(1)
 
     base_url = f"https://api.blockeden.xyz/openai/{api_key}"
@@ -75,9 +75,9 @@ def generate_image(prompt, size="1024x1024", quality="standard", model="dall-e-3
 
 def generate_image_with_reference(prompt, reference_image_url, size="1024x1024", output_dir="."):
     """Generate an image using a reference image URI via /v1/responses with gpt-image-1."""
-    api_key = os.environ.get("BLOCKEDEN_API_KEY")
+    api_key = os.environ.get("BLOCKEDEN_ACCESS_KEY")
     if not api_key:
-        print("Error: BLOCKEDEN_API_KEY environment variable is not set.", file=sys.stderr)
+        print("Error: BLOCKEDEN_ACCESS_KEY environment variable is not set.", file=sys.stderr)
         sys.exit(1)
 
     base_url = f"https://api.blockeden.xyz/openai/{api_key}"

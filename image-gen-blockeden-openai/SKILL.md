@@ -1,6 +1,6 @@
 ---
 name: image-gen-blockeden-openai
-description: Generates AI images using the BlockEden OpenAI proxy (DALL-E 3 / DALL-E 2 / gpt-image-1). Use this skill whenever the user wants to generate, create, draw, make, or produce an image, picture, photo, illustration, artwork, or visual — even if they don't say "DALL-E" or "BlockEden". Trigger on phrases like "generate an image of", "create a picture of", "make me an illustration", "draw a scene", "visualize this", "I want an image", or "generate based on this image/URL". Requires the BLOCKEDEN_API_KEY environment variable to be set.
+description: Generates AI images using the BlockEden OpenAI proxy (DALL-E 3 / DALL-E 2 / gpt-image-1). Use this skill whenever the user wants to generate, create, draw, make, or produce an image, picture, photo, illustration, artwork, or visual — even if they don't say "DALL-E" or "BlockEden". Trigger on phrases like "generate an image of", "create a picture of", "make me an illustration", "draw a scene", "visualize this", "I want an image", or "generate based on this image/URL". Requires the BLOCKEDEN_ACCESS_KEY environment variable to be set.
 argument-hint: [describe the image you want, optionally with a reference image URL, e.g. "a sunset over mountains in watercolor style" or "same style as https://example.com/ref.jpg but with a dragon"]
 ---
 
@@ -10,8 +10,8 @@ You are helping the user generate an AI image using the BlockEden OpenAI proxy, 
 
 ## Prerequisites
 
-The `BLOCKEDEN_API_KEY` environment variable must be set. If it's missing, tell the user:
-> Please set the `BLOCKEDEN_API_KEY` environment variable before using this skill.
+The `BLOCKEDEN_ACCESS_KEY` environment variable must be set. If it's missing, tell the user:
+> Please set the `BLOCKEDEN_ACCESS_KEY` environment variable before using this skill.
 
 ## How to generate an image
 
