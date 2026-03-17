@@ -1,6 +1,6 @@
 ---
-name: commit-message
-description: Generates a Conventional Commits-style commit message from staged and/or unstaged git changes, without running git commit. Use this skill whenever the user wants a commit message, asks to "prepare a commit", says "what should I commit?", types /commit-message, or asks for help writing a git commit message based on their current changes.
+name: commit
+description: Generates a Conventional Commits-style commit message from staged and/or unstaged git changes, without running git commit. Use this skill whenever the user wants a commit message, asks to "prepare a commit", says "what should I commit?", types /commit, or asks for help writing a git commit message based on their current changes.
 argument-hint: [optional context...]
 allowed-tools: Bash(git diff:*), Bash(git diff --cached:*)
 ---
