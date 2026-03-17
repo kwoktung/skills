@@ -1,0 +1,46 @@
+{
+  "skill_name": "diff-summary",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Hey can you summarize what I've changed from main? I want to write a PR for this.",
+      "expected_output": "A structured PR summary with a Conventional Commits-style title, a 2-4 sentence summary paragraph, a bullet list of changes, and a list of key files modified.",
+      "files": [],
+      "expectations": [
+        "Output contains a PR title line in Conventional Commits format (starts with a type like feat/fix/refactor/chore followed by a colon)",
+        "Output contains a Summary or description section with at least 2 sentences",
+        "Output contains a Changes section with 2 or more bullet points",
+        "Output contains a Files Modified section listing specific file names",
+        "The PR title is 72 characters or fewer",
+        "Output does not contain raw git output (no lines starting with 'diff --git', '@@', '+++')"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "/diff-summary",
+      "expected_output": "A structured diff summary showing changes from main to HEAD, or a clear message if there are no changes.",
+      "files": [],
+      "expectations": [
+        "Output contains a PR title or clearly states there are no changes between main and HEAD",
+        "Output does not contain raw git diff output (no lines starting with 'diff --git', '@@', '+++')",
+        "If changes exist, output contains a Changes or bullet-point section",
+        "Output is in clean markdown format (no command output leakage, no shell prompts)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I've been working on this feature branch for a few days and I need to open a PR. Can you look at what's different from main and write me a proper PR description I can paste into GitHub?",
+      "expected_output": "A GitHub-ready PR description with a title, summary, and structured change list that a reviewer could understand without additional context.",
+      "files": [],
+      "expectations": [
+        "Output contains a PR title in Conventional Commits format",
+        "Output contains a Summary/description paragraph explaining the purpose of the changes",
+        "Output contains a Changes section with bullet points describing specific changes",
+        "Output contains a Files Modified section",
+        "The output is paste-ready GitHub markdown (uses ## headings, - bullets, no raw git output)",
+        "PR title is 72 characters or fewer",
+        "Summary paragraph mentions specific technologies, files, or features that were actually changed (not generic)"
+      ]
+    }
+  ]
+}
