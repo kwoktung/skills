@@ -1,5 +1,5 @@
 {
-  "skill_name": "diff-summary",
+  "skill_name": "pr-summary",
   "evals": [
     {
       "id": 1,
@@ -17,7 +17,7 @@
     },
     {
       "id": 2,
-      "prompt": "/diff-summary",
+      "prompt": "/pr-summary",
       "expected_output": "A structured diff summary showing changes from main to HEAD, or a clear message if there are no changes.",
       "files": [],
       "expectations": [

@@ -1,18 +1,18 @@
 ---
-name: diff-summary
+name: pr-summary
 description: >
   Summarizes all git changes between the main branch and the current HEAD, then
   produces a structured PR/commit summary. Use this skill whenever the user asks
   to summarize their branch changes, wants a PR description, says things like
   "what changed from main", "summarize my branch", "diff summary", "changes
   since main", "PR summary", "what did I change", "write a PR description", or
-  types /diff-summary. Even if the user doesn't mention "main" explicitly but
+  types /pr-summary. Even if the user doesn't mention "main" explicitly but
   asks for a summary of their current work or branch, use this skill — it's the
   right tool whenever a concise human-readable summary of branch changes is needed.
 allowed-tools: Bash(git log:*), Bash(git diff:*), Bash(git rev-parse:*)
 ---
 
-# Diff Summary
+# PR Summary
 
 Produce a clear, structured summary of everything that has changed between the
 `main` branch and the current HEAD, then format it as a ready-to-use PR/commit
