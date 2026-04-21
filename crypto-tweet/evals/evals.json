@@ -1,0 +1,44 @@
+{
+  "skill_name": "crypto-tweet",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "write a crypto tweet about Bitcoin",
+      "expected_output": "Searches for Bitcoin news, presents 3-5 tweet candidates in casual crypto voice, generates SDXL landscape 1344x768 image, saves draft.json",
+      "files": [],
+      "expectations": [
+        "Performs at least one WebSearch for Bitcoin crypto news",
+        "Presents 3 or more numbered tweet candidates",
+        "Tweet candidates are ≤280 characters each",
+        "Tweet style is casual/community voice, not corporate",
+        "Asks user to select a tweet before generating the image",
+        "Runs image generation with --width 1344 --height 768",
+        "Uses @cf/stabilityai/stable-diffusion-xl-base-1.0 model",
+        "Writes draft.json with version, generated_at, topic, tweet, image fields"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "crypto tweet",
+      "expected_output": "Auto-discovers trending crypto news (no topic specified), presents tweet candidates",
+      "files": [],
+      "expectations": [
+        "Performs WebSearch to find trending crypto topics (no hardcoded topic)",
+        "Presents 3 or more tweet candidates based on discovered news",
+        "Sets topic field in draft.json to the auto-detected trending subject"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "write a tweet about Ethereum ETF approval",
+      "expected_output": "Searches specifically for Ethereum ETF news, tweets mention ETH or ETF, image prompt reflects the topic",
+      "files": [],
+      "expectations": [
+        "WebSearch query includes 'Ethereum' or 'ETH' and 'ETF'",
+        "At least one tweet candidate mentions ETH, Ethereum, or ETF",
+        "Image prompt relates to Ethereum or ETF themes",
+        "topic field in draft.json contains 'Ethereum ETF' or similar"
+      ]
+    }
+  ]
+}

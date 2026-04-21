@@ -1,0 +1,45 @@
+{
+  "skill_name": "x-post",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "post /tmp/crypto-tweet/bitcoin-etf-1745000000 to x.com",
+      "expected_output": "Skill reads draft.json from the folder, runs exiftool to strip metadata from the image, opens x.com in chrome-devtools, types the tweet text, attaches the image, and submits. Returns a confirmation screenshot.",
+      "files": [],
+      "expectations": [
+        "Reads draft.json from the specified folder",
+        "Runs exiftool -all= on the image filepath from draft.json",
+        "Uses mcp__chrome-devtools__list_pages or mcp__chrome-devtools__navigate_page to open x.com",
+        "Types the tweet text using mcp__chrome-devtools__type_text (not fill)",
+        "Attaches the image using mcp__chrome-devtools__upload_file",
+        "Takes a final screenshot confirming the post was submitted"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "share the content from /tmp/crypto-tweet/kelp-dao-exploit-1745100000 to Twitter",
+      "expected_output": "Skill locates draft.json, strips image metadata, composes the post on x.com with text and image, and submits it.",
+      "files": [],
+      "expectations": [
+        "Reads draft.json from the given folder path",
+        "Runs exiftool -all= to strip image metadata before uploading",
+        "Navigates to x.com or selects an existing x.com tab",
+        "Types tweet text from draft.json into the compose area",
+        "Uploads the image file from draft.json image.filepath",
+        "Confirms submission with a screenshot"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "post bitcoin-etf-1745000000 to x.com",
+      "expected_output": "Skill resolves the bare folder name to /tmp/crypto-tweet/bitcoin-etf-1745000000, reads draft.json, strips metadata, posts to x.com.",
+      "files": [],
+      "expectations": [
+        "Resolves bare folder name by looking under /tmp/crypto-tweet/",
+        "Reads draft.json successfully",
+        "Strips image metadata with exiftool",
+        "Composes and submits the post on x.com"
+      ]
+    }
+  ]
+}

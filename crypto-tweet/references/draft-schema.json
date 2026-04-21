@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "crypto-tweet/draft",
+  "title": "CryptoDraft",
+  "description": "Output schema for the crypto-tweet skill. Consumed by downstream posting skills.",
+  "type": "object",
+  "required": ["version", "generated_at", "topic", "tweet", "image"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "Schema version"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the draft was created"
+    },
+    "topic": {
+      "type": "string",
+      "description": "The topic used for research — user-specified or auto-detected from trending news"
+    },
+    "tweet": {
+      "type": "string",
+      "maxLength": 280,
+      "description": "The selected tweet text, ready to post"
+    },
+    "image": {
+      "type": "object",
+      "required": ["filepath", "prompt", "width", "height"],
+      "properties": {
+        "filepath": {
+          "type": "string",
+          "description": "Absolute path to the generated image file"
+        },
+        "prompt": {
+          "type": "string",
+          "description": "The image generation prompt used"
+        },
+        "width": {
+          "type": "integer",
+          "const": 1344,
+          "description": "Image width in pixels (landscape)"
+        },
+        "height": {
+          "type": "integer",
+          "const": 768,
+          "description": "Image height in pixels (landscape)"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
