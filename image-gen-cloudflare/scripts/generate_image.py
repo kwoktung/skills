@@ -11,7 +11,7 @@ import sdxl
 import img2img
 
 FLUX_MODEL = "@cf/black-forest-labs/flux-1-schnell"
-SDXL_MODEL = "@cf/stability-ai/stable-diffusion-xl-base-1.0"
+SDXL_MODEL = "@cf/stabilityai/stable-diffusion-xl-base-1.0"
 
 
 def main():

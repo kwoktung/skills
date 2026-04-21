@@ -6,7 +6,7 @@ import urllib.error
 
 from utils import get_base_url, get_auth_headers, save_image
 
-MODEL = "@cf/stability-ai/stable-diffusion-xl-base-1.0"
+MODEL = "@cf/stabilityai/stable-diffusion-xl-base-1.0"
 
 
 def generate(prompt, negative_prompt="", num_steps=20, width=1024, height=1024, output_dir="."):

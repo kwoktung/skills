@@ -31,7 +31,7 @@ python <skill_dir>/scripts/generate_image.py "<prompt>" [options]
 | Flag | Default | Notes |
 |------|---------|-------|
 | `--reference-image` | None | Local image path to edit. Automatically uses SD v1.5 img2img. |
-| `--model` | `@cf/black-forest-labs/flux-1-schnell` | Choices: `@cf/black-forest-labs/flux-1-schnell`, `@cf/stability-ai/stable-diffusion-xl-base-1.0` |
+| `--model` | `@cf/black-forest-labs/flux-1-schnell` | Choices: `@cf/black-forest-labs/flux-1-schnell`, `@cf/stabilityai/stable-diffusion-xl-base-1.0` |
 | `--width` | 1024 | Image width in pixels (SDXL only) |
 | `--height` | 1024 | Image height in pixels (SDXL only) |
 | `--negative-prompt` | `""` | Things to exclude from the image (SDXL only) |
@@ -53,7 +53,7 @@ python /path/to/skill/scripts/generate_image.py \
 ```bash
 python /path/to/skill/scripts/generate_image.py \
   "a futuristic cityscape at dusk, digital art" \
-  --model "@cf/stability-ai/stable-diffusion-xl-base-1.0" \
+  --model "@cf/stabilityai/stable-diffusion-xl-base-1.0" \
   --width 1344 --height 768 \
   --negative-prompt "blurry, low quality, distorted, watermark" \
   --output-dir ~/Desktop
@@ -78,7 +78,7 @@ python /path/to/skill/scripts/generate_image.py \
 
 ### SDXL text-to-image
 ```json
-{"filepath": "/path/to/image_1234567890.png", "model": "@cf/stability-ai/stable-diffusion-xl-base-1.0", "prompt": "...", "width": 1024, "height": 1024}
+{"filepath": "/path/to/image_1234567890.png", "model": "@cf/stabilityai/stable-diffusion-xl-base-1.0", "prompt": "...", "width": 1024, "height": 1024}
 ```
 
 ### SD img2img editing
@@ -96,7 +96,7 @@ Tell the user the file path and offer to regenerate with different parameters if
 - If the user provides a local image file path to edit, pass it via `--reference-image` — this automatically uses the img2img model.
 - For "wide", "landscape", "horizontal" with SDXL: use `--width 1344 --height 768`.
 - For "tall", "portrait", "vertical" with SDXL: use `--width 768 --height 1344`.
-- If the user mentions "Stable Diffusion" or "SDXL", use `--model "@cf/stability-ai/stable-diffusion-xl-base-1.0"`.
+- If the user mentions "Stable Diffusion" or "SDXL", use `--model "@cf/stabilityai/stable-diffusion-xl-base-1.0"`.
 - Default to FLUX for all other cases (fastest, best for quick generation).
 - Reference images must be local file paths. If the user gives a URL, download it first: `curl -L -o /tmp/ref_image.jpg "<url>"`.
 - For `--strength`: 0.3–0.5 for subtle changes; 0.7–0.9 for strong transformations.
