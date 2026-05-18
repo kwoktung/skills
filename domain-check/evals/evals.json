@@ -1,0 +1,29 @@
+{
+  "skill_name": "domain-check",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm starting a small fish shop and need a website. Can you suggest some .com domains and check which ones are free?",
+      "expected_output": "6–10 fish-related .com domain candidates with real availability results grouped into AVAILABLE / TAKEN sections",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "recommend some domains for my coffee startup, I want .io or .co TLDs",
+      "expected_output": "6–10 coffee/startup-themed domains with .io and/or .co TLDs, each checked for availability",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "find me some UK domains for a bakery business",
+      "expected_output": "Candidates using .co.uk and/or .uk TLDs, availability checked, results clearly grouped",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "is fishmanclothing.com available?",
+      "expected_output": "Checks exactly fishmanclothing.com and reports AVAILABLE (it is unregistered)",
+      "files": []
+    }
+  ]
+}
