@@ -10,7 +10,7 @@ description: >
   /pr-summary. Even if the user doesn't mention a branch explicitly but asks
   for a summary of their current work or branch, use this skill — it's the
   right tool whenever a concise human-readable summary of branch changes is needed.
-argument-hint: [target-branch] [optional context...]
+argument-hint: "[target-branch] [optional context...]"
 allowed-tools: Bash(git log:*), Bash(git diff:*), Bash(git rev-parse:*)
 ---
 
