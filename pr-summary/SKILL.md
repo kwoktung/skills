@@ -1,45 +1,66 @@
 ---
 name: pr-summary
 description: >
-  Summarizes all git changes between the main branch and the current HEAD, then
-  produces a structured PR/commit summary. Use this skill whenever the user asks
-  to summarize their branch changes, wants a PR description, says things like
-  "what changed from main", "summarize my branch", "diff summary", "changes
-  since main", "PR summary", "what did I change", "write a PR description", or
-  types /pr-summary. Even if the user doesn't mention "main" explicitly but
-  asks for a summary of their current work or branch, use this skill — it's the
+  Summarizes all git changes between a target branch (default: main) and the
+  current HEAD, then produces a structured PR/commit summary. Use this skill
+  whenever the user asks to summarize their branch changes, wants a PR
+  description, says things like "what changed from main", "summarize my
+  branch", "diff summary", "changes since main", "changes against develop",
+  "PR summary", "what did I change", "write a PR description", or types
+  /pr-summary. Even if the user doesn't mention a branch explicitly but asks
+  for a summary of their current work or branch, use this skill — it's the
   right tool whenever a concise human-readable summary of branch changes is needed.
+argument-hint: [target-branch] [optional context...]
 allowed-tools: Bash(git log:*), Bash(git diff:*), Bash(git rev-parse:*)
 ---
 
 # PR Summary
 
-Produce a clear, structured summary of everything that has changed between the
-`main` branch and the current HEAD, then format it as a ready-to-use PR/commit
-description.
+Produce a clear, structured summary of everything that has changed between a
+target branch (`main` unless the user names another) and the current HEAD,
+then format it as a ready-to-use PR/commit description.
+
+## Arguments
+
+Arguments passed: `$ARGUMENTS`
+
+Arguments are optional. The first word may be the target branch to compare
+against; anything after it is extra context for the summary.
+
+- If the first word resolves to a git ref (`git rev-parse --verify --quiet
+  <word>` succeeds), use it as `<base>` and treat the rest as user context.
+- Otherwise, treat all the arguments as user context and use the default base.
+- If no branch is given in the arguments but the user named one in their
+  message (e.g. "what changed since develop"), use that.
+
+**Default base:** `main`. If `main` doesn't exist locally, fall back to
+`origin/main`. If a named target branch doesn't exist locally, try
+`origin/<branch>` before giving up. If no candidate resolves, say which refs
+you tried and stop.
 
 ## Steps
 
-1. **Gather the data** — run the three commands below to get a full picture.
-   They are injected inline at render time:
+1. **Gather the data** — with `<base>` resolved, run:
 
    **Commits on this branch:**
    ```
-   !git log main..HEAD --oneline --no-decorate
+   git log <base>..HEAD --oneline --no-decorate
    ```
 
    **Files changed (stat):**
    ```
-   !git diff main..HEAD --stat
+   git diff <base>...HEAD --stat
    ```
 
    **Full diff:**
    ```
-   !git diff main..HEAD
+   git diff <base>...HEAD
    ```
 
-   If `main` doesn't exist as a local ref, fall back to `origin/main`. If the
-   branch has no commits ahead of main, say so clearly and stop.
+   The three-dot diff compares against the merge base, so changes that landed
+   on `<base>` after the branch was cut don't show up — matching what a PR
+   would show. If the branch has no commits ahead of `<base>`, say so clearly
+   and stop.
 
 2. **Analyze** — read the commits and diff to understand:
    - The overall theme/purpose of the changes (new feature, bug fix, refactor,
@@ -89,4 +110,5 @@ what each one does — skip auto-generated files, lock files, and trivial edits>
 
 ## Optional User Context
 
-$ARGUMENTS
+Any arguments left after the target branch (see **Arguments**) are extra
+context from the user — use them to shape the summary.

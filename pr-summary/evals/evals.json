@@ -41,6 +41,18 @@
         "PR title is 72 characters or fewer",
         "Summary paragraph mentions specific technologies, files, or features that were actually changed (not generic)"
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "/pr-summary develop",
+      "expected_output": "A structured PR summary of changes between the develop branch (or origin/develop) and HEAD, or a clear message if develop doesn't exist or there are no changes.",
+      "files": [],
+      "expectations": [
+        "The comparison base used is develop or origin/develop, not main",
+        "If develop cannot be resolved, output clearly says which refs were tried instead of silently falling back to main",
+        "If changes exist, output contains a PR title in Conventional Commits format and a Changes section",
+        "Output does not contain raw git diff output (no lines starting with 'diff --git', '@@', '+++')"
+      ]
     }
   ]
 }
